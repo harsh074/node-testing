@@ -1,0 +1,31 @@
+<div id="register_view" ng-controller="RegisterCtrl">
+	<div ng-if="complete == false">
+		<form role="form" ng-if="authenticated != true" name="registerForm" ng-submit="register(registerForm)" novalidate>
+			<div class="form-group">
+				<label for="id_email">Email</label>
+				<input name="email" id="id_email" class="form-control" type="email" ng-model="model.email" placeholder="Email" required />
+			</div>
+			<div class="alert alert-danger" ng-repeat="error in errors.email">{{error}}</div>
+			<div class="form-group">
+				<label for="id_password">Password</label>
+				<input name="password" id="id_password" class="form-control" type="password" ng-model="model.password" placeholder="Password" required />
+			</div>
+			<div class="alert alert-danger" ng-repeat="error in errors.password">{{error}}</div>
+			<div class="form-group">
+				<label for="id_firstname">First Name</label>
+				<input name="username" id="id_firstname" class="form-control" type="text" ng-model="model.firstName" placeholder="First Name" required />
+			</div>
+			<div class="alert alert-danger" ng-repeat="error in errors.firstName">{{error}}</div>
+			<div class="form-group">
+				<label for="id_lastname">Last Name</label>
+				<input name="username" id="id_lastname" class="form-control" type="text" ng-model="model.lastName" placeholder="Last Name" required />
+			</div>
+			<div class="alert alert-danger" ng-repeat="error in errors.lastName">{{error}}</div>
+			<button ng-hide="authenticated" type="submit" class="btn btn-primary">Register</button>
+		</form>
+		<p ng-if="authenticated">You are already logged in!  You don't need to register.</p>
+	</div>
+	<div ng-if="complete == true">
+		<div class="alert alert-success">Great!  You've just registered.  You should receive an email shortly with instructions on how to activate your account.</div>
+	</div>
+</div>
